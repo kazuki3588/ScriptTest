@@ -65,8 +65,8 @@ public class Test : MonoBehaviour
         Boss midboss = new Boss();
         midboss.Attack();
         midboss.Defence(2);
-        //魔法を10回分使うす。
-        for (int i = 1; i <= 3; i++)
+        //魔法を11回分使う。
+        for (int i = 1; i <= 11; i++)
         {
             lastBoss.Magic(); 
         }
