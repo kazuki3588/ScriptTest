@@ -7,6 +7,12 @@ public class Boss
    
     private int hp = 100;
     private int power = 25;
+    private int mp;
+
+    public  Boss()
+    {
+        mp = 53;
+    }
     public void Attack()
     {
         Debug.Log(this.power + "のダメージを与えた");
@@ -20,16 +26,16 @@ public class Boss
     //魔法関数
     public void Magic()
     {
-        //mp分だけ繰り返す
-        for (int mp = 53; mp >= 5; mp -= 5)
+        if(mp >= 5)
         {
-            Debug.Log("魔法攻撃をした。残りのMPは" + mp + "。");
+            mp -= 5;
+            Debug.Log("魔法攻撃をした。残りMPは" + mp + "。");
         }
-            
-        Debug.Log("MPが足りないため、魔法は使えない。");
-   
+        else
+        {
+            Debug.Log("MPが足りないため、魔法が使えない。");
+        }
     }
-
 }
 
 public class Test : MonoBehaviour
@@ -59,16 +65,11 @@ public class Test : MonoBehaviour
         Boss midboss = new Boss();
         midboss.Attack();
         midboss.Defence(2);
-        //魔法を10回分だけ繰り返す。
-        for(int i = 1; i <= 10; i++)
+        //魔法を10回分使うす。
+        for (int i = 1; i <= 3; i++)
         {
-           
-            lastBoss.Magic();
-            Debug.Log(i);
-            
+            lastBoss.Magic(); 
         }
-        Debug.Log("MPが足りない。");
-
     }
     
 
